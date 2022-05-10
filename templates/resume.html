@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+  <!-- ======= Resume Section ======= -->
+  <section id="resume" class="resume">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Resume</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="resume-title">Sumary</h3>
+          <div class="resume-item pb-0">
+            
+        {% for summary in summaries %}
+            <h4>{{ summary.person_name }}</h4>
+            <p><em>{{ summary.about_person }}</em></p>
+            <p>
+            <ul>
+              <li>{{ summary.person_address }}</li>
+              <li>{{ summary.person_phone }}</li>
+              <li>{{ summary.person_email }}</li>
+            </ul>
+            </p>
+        {% endfor %}
+          </div>
+
+          <h3 class="resume-title">Education</h3>
+          <div class="resume-item">
+        {% for education in educations %}
+            <h4>{{ education.education_degree }}</h4>
+            <h5>{{ education.education_year }}</h5>
+            <p><em>{{ education.education_university }}</em></p>
+            <p>{{ education.about_education }}</p>
+        {% endfor %}    
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+          <h3 class="resume-title">Professional Experience</h3>
+          <div class="resume-item">
+          {% for experience in experiences %}
+            <h4>{{ experience.experience_degree }}</h4>
+            <h5>{{ experience.experience_year }}2019 - Present</h5>
+            <p><em>{{ experience.experience_university }}</em></p>
+            <p>
+              {{ experience.about_experience }}
+            </p>
+          {% endfor %}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Resume Section -->
+
+</main><!-- End #main -->
+
+{% endblock content %}
